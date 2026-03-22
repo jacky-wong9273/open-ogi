@@ -1,0 +1,61 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "3100:3100"
+      - "3101:3101"
+    environment:
+      - NODE_ENV=production
+      - PORT=3100
+      - WS_PORT=3101
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - DB_PATH=/data/open-ogi.db
+      - DEFAULT_LLM_PROVIDER=${DEFAULT_LLM_PROVIDER:-deepseek}
+      - DEFAULT_LLM_MODEL=${DEFAULT_LLM_MODEL:-deepseek-chat}
+      - DEFAULT_LLM_API_KEY=${DEFAULT_LLM_API_KEY:-}
+      - DEFAULT_LLM_BASE_URL=${DEFAULT_LLM_BASE_URL:-https://api.deepseek.com/v1}
+    volumes:
+      - server-data:/data
+    healthcheck:
+      test:
+        ["CMD", "wget", "--spider", "-q", "http://localhost:3100/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - NODE_ENV=production
+      - SERVER_URL=http://server:3100
+      - WS_URL=ws://server:3101
+      - LLM_API_KEY=${DEFAULT_LLM_API_KEY:-}
+      - LLM_BASE_URL=${DEFAULT_LLM_BASE_URL:-https://api.deepseek.com/v1}
+      - LLM_MODEL=${DEFAULT_LLM_MODEL:-deepseek-chat}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_ALLOWED_CHATS=${TELEGRAM_ALLOWED_CHATS:-}
+      - WHATSAPP_ACCESS_TOKEN=${WHATSAPP_ACCESS_TOKEN:-}
+      - WHATSAPP_PHONE_NUMBER_ID=${WHATSAPP_PHONE_NUMBER_ID:-}
+      - WHATSAPP_ALLOWED_NUMBERS=${WHATSAPP_ALLOWED_NUMBERS:-}
+    depends_on:
+      server:
+        condition: service_healthy
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+    restart: unless-stopped
+
+volumes:
+  server-data:

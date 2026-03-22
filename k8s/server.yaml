@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  namespace: open-ogi
+  labels:
+    app: open-ogi-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: open-ogi-server
+  template:
+    metadata:
+      labels:
+        app: open-ogi-server
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+        - name: server
+          image: open-ogi/server:latest
+          ports:
+            - containerPort: 3100
+              name: http
+            - containerPort: 3101
+              name: ws
+          envFrom:
+            - configMapRef:
+                name: open-ogi-config
+          env:
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: open-ogi-secrets
+                  key: JWT_SECRET
+            - name: DEFAULT_LLM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: open-ogi-secrets
+                  key: DEFAULT_LLM_API_KEY
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: server-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: server-data
+  namespace: open-ogi
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+  namespace: open-ogi
+spec:
+  selector:
+    app: open-ogi-server
+  ports:
+    - name: http
+      port: 3100
+      targetPort: 3100
+    - name: ws
+      port: 3101
+      targetPort: 3101

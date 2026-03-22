@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+  namespace: open-ogi
+  labels:
+    app: open-ogi-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: open-ogi-client
+  template:
+    metadata:
+      labels:
+        app: open-ogi-client
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+        - name: client
+          image: open-ogi/client:latest
+          env:
+            - name: SERVER_URL
+              value: "http://server:3100"
+            - name: WS_URL
+              value: "ws://server:3101"
+            - name: LLM_MODEL
+              value: "deepseek-chat"
+            - name: LLM_BASE_URL
+              value: "https://api.deepseek.com/v1"
+            - name: LLM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: open-ogi-secrets
+                  key: DEFAULT_LLM_API_KEY
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: open-ogi-secrets
+                  key: TELEGRAM_BOT_TOKEN
+            - name: WHATSAPP_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: open-ogi-secrets
+                  key: WHATSAPP_ACCESS_TOKEN
+          resources:
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client
+  namespace: open-ogi
+spec:
+  selector:
+    app: open-ogi-client
+  ports:
+    - port: 3200
+      targetPort: 3200

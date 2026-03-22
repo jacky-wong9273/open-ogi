@@ -1,0 +1,33 @@
+{
+  "name": "open-ogi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Organizational General Intelligence — AI Agent Orchestration Framework",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel --filter=!@open-ogi/desktop dev",
+    "dev:desktop": "pnpm --filter=@open-ogi/desktop dev",
+    "test": "pnpm -r test",
+    "test:coverage": "pnpm -r test:coverage",
+    "lint": "eslint . --ext .ts,.tsx",
+    "clean": "pnpm -r clean"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "orchestration",
+    "organizational-intelligence"
+  ],
+  "license": "MIT",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "electron"
+    ]
+  }
+}

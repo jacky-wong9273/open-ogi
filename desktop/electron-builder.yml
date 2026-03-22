@@ -1,0 +1,24 @@
+appId: com.open-ogi.desktop
+productName: Open-OGI
+directories:
+  buildResources: resources
+  output: release
+files:
+  - dist/**/*
+  - "!node_modules/**/*"
+asarUnpack:
+  - "**/*.node"
+  - "**/better-sqlite3/**"
+  - "**/keytar/**"
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/

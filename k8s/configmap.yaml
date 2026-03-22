@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: open-ogi-config
+  namespace: open-ogi
+data:
+  NODE_ENV: "production"
+  PORT: "3100"
+  WS_PORT: "3101"
+  DEFAULT_LLM_PROVIDER: "deepseek"
+  DEFAULT_LLM_MODEL: "deepseek-chat"
+  DEFAULT_LLM_BASE_URL: "https://api.deepseek.com/v1"
+  DB_PATH: "/data/open-ogi.db"

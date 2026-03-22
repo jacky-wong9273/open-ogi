@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+  namespace: open-ogi
+  labels:
+    app: open-ogi-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: open-ogi-ui
+  template:
+    metadata:
+      labels:
+        app: open-ogi-ui
+    spec:
+      containers:
+        - name: ui
+          image: open-ogi/ui:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui
+  namespace: open-ogi
+spec:
+  selector:
+    app: open-ogi-ui
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: open-ogi-ingress
+  namespace: open-ogi
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ui
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port:
+                  number: 3100
+          - path: /ws
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port:
+                  number: 3101

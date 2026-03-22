@@ -1,0 +1,51 @@
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:09:25.480Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:09:25.733Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:09:25.734Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:09:25.748Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:14:15.251Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:14:15.267Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:15:25.924Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:15:25.943Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:15:25.946Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:15:25.958Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:18:44.984Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:18:45.003Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:18:45.005Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:18:45.017Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:20:37.420Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:21:03.343Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:21:03.406Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:21:03.407Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:21:03.422Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:29:00.675Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:29:00.694Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:29:00.695Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:29:00.713Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:33:53.009Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:33:53.027Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:33:53.028Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:33:53.042Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:35:09.346Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:35:09.364Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:35:09.365Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:35:09.388Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:35:49.997Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:35:50.015Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:35:50.016Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:35:50.029Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:37:06.952Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:37:06.969Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:39:08.084Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:39:08.103Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-21T16:39:08.104Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-21T16:39:08.115Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-21T16:44:54.846Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-21T16:44:54.865Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-22T10:13:28.310Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-22T10:13:28.533Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-22T10:13:28.533Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-22T10:13:28.534Z"}
+{"level":"info","message":"Open-OGI Server starting...","service":"open-ogi-server","timestamp":"2026-03-22T10:32:55.793Z"}
+{"level":"info","message":"WebSocket gateway started on port 3101","service":"open-ogi-server","timestamp":"2026-03-22T10:32:55.803Z"}
+{"level":"info","message":"Open-OGI Server ready","service":"open-ogi-server","timestamp":"2026-03-22T10:32:55.804Z"}
+{"level":"info","message":"HTTP server listening on port 3100","service":"open-ogi-server","timestamp":"2026-03-22T10:32:55.805Z"}
